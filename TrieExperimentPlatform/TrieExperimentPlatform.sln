@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrieExperimentPlatform", "TrieExperimentPlatform\TrieExperimentPlatform.csproj", "{8114F42D-90EE-4F04-85AB-807131B5C420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrieExperimentPlatformTests", "TrieExperimentPlatformTests\TrieExperimentPlatformTests.csproj", "{42417635-3ADA-4AB5-B8BA-576089F8AF02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8114F42D-90EE-4F04-85AB-807131B5C420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8114F42D-90EE-4F04-85AB-807131B5C420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8114F42D-90EE-4F04-85AB-807131B5C420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8114F42D-90EE-4F04-85AB-807131B5C420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42417635-3ADA-4AB5-B8BA-576089F8AF02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42417635-3ADA-4AB5-B8BA-576089F8AF02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42417635-3ADA-4AB5-B8BA-576089F8AF02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42417635-3ADA-4AB5-B8BA-576089F8AF02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
