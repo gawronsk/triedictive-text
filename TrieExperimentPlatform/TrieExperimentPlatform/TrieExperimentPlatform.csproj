@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tries\ArrayCharacterBranchingTrie.cs" />
+    <Compile Include="Tries\BasicBinaryTrie.cs" />
+    <Compile Include="Tries\ITrie.cs" />
     <Compile Include="TrieExperiment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tries\PatriciaTrie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
