@@ -19,7 +19,11 @@ namespace TrieExperimentPlatform
             // build trie
             foreach(var line in lines)
             {
-                // add to trie
+                var word = line.Split('\t').FirstOrDefault();
+                if (word != null)
+                {
+                    // add to trie
+                }
             }
 
             s.Stop();
