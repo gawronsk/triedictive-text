@@ -14,8 +14,11 @@ namespace TrieExperimentPlatform
             string[] lines = System.IO.File.ReadAllLines(@"..\..\Data\count_1w_small.txt");
             Console.WriteLine("Read {0} lines from file", lines.Length);
 
-            Stopwatch s = Stopwatch.StartNew();
+            var s = Stopwatch.StartNew();
 
+
+            var proc = Process.GetCurrentProcess();
+            var startMemory = proc.WorkingSet64;
             // build trie
             foreach(var line in lines)
             {
@@ -35,6 +38,14 @@ namespace TrieExperimentPlatform
 
             s.Stop();
             Console.WriteLine("Elapsed Time Running Experiment: {0} ms", s.ElapsedMilliseconds);
+
+
+            var endMemory = proc.WorkingSet64;
+
+            Console.WriteLine("Memory Usage: {0}", endMemory - startMemory);
+
+
+
 
             Console.Read();
         }
