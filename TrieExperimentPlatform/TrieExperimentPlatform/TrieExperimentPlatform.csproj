@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RandomTestcaseProvider.cs" />
     <Compile Include="Tries\ArrayCharacterBranchingTrie.cs" />
     <Compile Include="Tries\BasicBinaryTrie.cs" />
     <Compile Include="Tries\ITrie.cs" />
@@ -55,6 +56,13 @@
     <Content Include="Data\count_1w_small.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\test_small.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gma.DataStructures.StringSearch\Gma.DataStructures.StringSearch.csproj">
+      <Project>{17125877-2cf0-42b2-89d3-418e40bde5d0}</Project>
+      <Name>Gma.DataStructures.StringSearch</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
