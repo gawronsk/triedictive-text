@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gma.DataStructures.StringSearch;
 
 namespace TrieExperimentPlatform
 {
@@ -19,6 +20,9 @@ namespace TrieExperimentPlatform
 
             var proc = Process.GetCurrentProcess();
             var startMemory = proc.WorkingSet64;
+
+            var SuffixTrie = new SuffixTrie<string>(0);
+
             // build trie
             foreach(var line in lines)
             {
@@ -26,6 +30,7 @@ namespace TrieExperimentPlatform
                 if (word != null)
                 {
                     // add to trie
+                    SuffixTrie.Add(word, word);
                 }
             }
 
@@ -35,7 +40,13 @@ namespace TrieExperimentPlatform
             s = Stopwatch.StartNew();
 
             //run experiment
-
+            RandomTestcaseProvider testcase = new RandomTestcaseProvider();
+            foreach(var testWord in testcase.GetTestWords())
+            {
+                var result = SuffixTrie.Retrieve(testWord);
+                //Console.WriteLine(String.Join(" ", result));
+            }
+            
             s.Stop();
             Console.WriteLine("Elapsed Time Running Experiment: {0} ms", s.ElapsedMilliseconds);
 
@@ -44,10 +55,8 @@ namespace TrieExperimentPlatform
 
             Console.WriteLine("Memory Usage: {0}", endMemory - startMemory);
 
-
-
-
             Console.Read();
+
         }
     }
 }
