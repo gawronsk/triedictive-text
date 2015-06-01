@@ -14,24 +14,35 @@ namespace TrieExperimentPlatform
         {
             string[] lines = System.IO.File.ReadAllLines(@"..\..\Data\count_1w_small.txt");
             Console.WriteLine("Read {0} lines from file", lines.Length);
+            var words = lines
+                .Select(x => x.Split('\t').FirstOrDefault())
+                .Where(x => !String.IsNullOrEmpty(x))
+                .ToArray();
+
+            RunExperiment(new Trie<string>(), words);
+            RunExperiment(new SuffixTrie<string>(0), words);
+            RunExperiment(new PatriciaTrie<string>(), words);
+            //RunExperiment(new PatriciaSuffixTrie<string>(0), words);
+
+
+
+            Console.Read();
+
+        }
+
+        public static void RunExperiment(ITrie<string> trie, IEnumerable<string> words)
+        {
+            Console.WriteLine("Running experiment for: " + trie.GetType().ToString());
 
             var s = Stopwatch.StartNew();
-
 
             var proc = Process.GetCurrentProcess();
             var startMemory = proc.WorkingSet64;
 
-            var SuffixTrie = new SuffixTrie<string>(0);
-
             // build trie
-            foreach(var line in lines)
+            foreach (var word in words)
             {
-                var word = line.Split('\t').FirstOrDefault();
-                if (word != null)
-                {
-                    // add to trie
-                    SuffixTrie.Add(word, word);
-                }
+                trie.Add(word, word);
             }
 
             s.Stop();
@@ -41,12 +52,12 @@ namespace TrieExperimentPlatform
 
             //run experiment
             RandomTestcaseProvider testcase = new RandomTestcaseProvider();
-            foreach(var testWord in testcase.GetTestWords())
+            foreach (var testWord in testcase.GetTestWords())
             {
-                var result = SuffixTrie.Retrieve(testWord);
+                var result = trie.Retrieve(testWord);
                 //Console.WriteLine(String.Join(" ", result));
             }
-            
+
             s.Stop();
             Console.WriteLine("Elapsed Time Running Experiment: {0} ms", s.ElapsedMilliseconds);
 
@@ -55,8 +66,11 @@ namespace TrieExperimentPlatform
 
             Console.WriteLine("Memory Usage: {0}", endMemory - startMemory);
 
-            Console.Read();
+
 
         }
+
+
+
     }
 }
