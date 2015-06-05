@@ -13,7 +13,7 @@ namespace TrieExperimentPlatform
 
         public RandomTestcaseProvider()
         {
-            Words = System.IO.File.ReadAllLines(@"..\..\Data\test_small.txt");
+            Words = System.IO.File.ReadAllLines(@"..\..\Data\test.txt");
             Random = new Random();
         }
 
